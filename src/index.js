@@ -1,3 +1,5 @@
+export createComponent from './createComponent'
+
 export Avatar from './Avatar'
 export Box, {FlexBox, ScrollBox, BasicBox} from './Box'
 export BreakPoint from './BreakPoint'
