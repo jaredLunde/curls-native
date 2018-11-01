@@ -11,4 +11,5 @@ export const scale = {
 export const defaultProps = {
   sm: true,
   color: 'grey',
+  face: 'primary'
 }

@@ -77,6 +77,12 @@ export default class ThemeProvider extends React.Component {
     // console.log('[🎉 Theme]', this.state.theme)
   }
 
+  componentDidUpdate ({theme}) {
+    if (this.props.theme !== theme) {
+      this.setState({theme: injectTheme(baseTheme, this.props.theme)})
+    }
+  }
+
   setTheme = theme => this.setState(
     prevState => ({theme: injectTheme(prevState.theme, theme)})
   )
@@ -86,7 +92,10 @@ export default class ThemeProvider extends React.Component {
   )
 
   render () {
-    this.themeProviderContext.theme = this.state.theme
+    this.themeProviderContext = {
+      ...this.themeProviderContext,
+      theme: this.state.theme
+    }
 
     return (
       <CurlsContext.Provider value={this.themeProviderContext}>

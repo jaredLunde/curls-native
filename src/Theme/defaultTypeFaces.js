@@ -1,3 +1,3 @@
 export default {
-  system: 'sans-serif'
+  primary: 'System'
 }
