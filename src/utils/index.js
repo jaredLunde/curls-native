@@ -1,0 +1,7 @@
+export assignOrdered from './assignOrdered'
+export colorize from './colorize'
+export deepMerge from './deepMerge'
+export directionalScale, {isDirectional} from './directionalScale'
+export getStyles from './getStyles'
+export getTheme from './getTheme'
+export toSize from './toSize'

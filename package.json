@@ -1,0 +1,44 @@
+{
+  "name": "curls-native",
+  "version": "0.0.1-alpha.2",
+  "description": "A react-native implementation of the Curls UI component framework",
+  "main": "dist/cjs/index.js",
+  "module": "dist/es/index.js",
+  "repository": "https://github.com/jaredLunde/curls-native",
+  "author": "Jared Lunde",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "@babel/runtime": "^7.1.2",
+    "@emotion/primitives": "^9.2.11",
+    "cdll-memoize": "^0.1.7",
+    "change-case": "^3.0.2",
+    "empty": "^0.10.1",
+    "is-mergeable-object": "^1.1.0",
+    "memoize-two-args": "^1.0.7",
+    "object-without-props": "^0.1.2",
+    "polished": "^2.3.0",
+    "react-primitives": "^0.6.1"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.6.2",
+    "react": "^16.3.0",
+    "react-native": "^0.57.4"
+  },
+  "devDependencies": {
+    "@inst-app/babel-preset-esx": "^1.0.11",
+    "@inst-app/babel-preset-react": "^1.0.3",
+    "babel-plugin-polished": "^1.1.0",
+    "cross-env": "^5.2.0",
+    "prettier": "^1.14.3",
+    "rimraf": "^2.6.2"
+  },
+  "scripts": {
+    "build": "npm run build:es && npm run build:cjs",
+    "build:es": "rimraf dist/es && cross-env NODE_ENV=production BABEL_ENV=es babel src --out-dir dist/es && npm run prettier:es",
+    "build:cjs": "rimraf dist/cjs && cross-env NODE_ENV=production BABEL_ENV=cjs babel src --out-dir dist/cjs && npm run prettier:cjs",
+    "watch": "cross-env NODE_ENV=development BABEL_ENV=cjs babel ./src -w --out-dir dist/cjs",
+    "prettier:es": "prettier --single-quote --no-semi --no-bracket-spacing --trailing-comma es5 --write --tab-width 2 \"dist/es/**/*.js\"",
+    "prettier:cjs": "prettier --single-quote --no-semi --no-bracket-spacing --trailing-comma es5 --write --tab-width 2 \"dist/cjs/**/*.js\""
+  }
+}
